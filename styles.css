@@ -532,7 +532,12 @@ main,
 @media print {
   @page {
     size: A4;
-    margin: 12mm;
+    margin: 7mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   body {
@@ -554,21 +559,98 @@ main,
 
   .hero {
     min-height: auto;
-    grid-template-columns: 1fr;
-    padding: 0 0 18mm;
+    grid-template-columns: minmax(0, 1fr) 46mm;
+    gap: 8mm;
+    align-items: end;
+    padding: 0 0 7mm;
     break-after: avoid;
   }
 
   .hero h1 {
-    font-size: 44pt;
+    font-size: 34pt;
+    line-height: 0.9;
   }
 
   .hero-summary {
-    font-size: 12pt;
+    max-width: none;
+    margin-top: 6mm;
+    font-size: 8.5pt;
+    line-height: 1.55;
+  }
+
+  .hero-visual {
+    display: grid;
+    grid-template-columns: 1fr 0.82fr;
+    gap: 2mm;
+  }
+
+  .hero-image,
+  .hero-placeholder {
+    border: 0.3pt solid #111;
+    box-shadow: none;
+  }
+
+  .profile-panel {
+    margin-bottom: 8mm;
+    padding-top: 4mm;
+  }
+
+  .profile-panel dl {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3mm;
+  }
+
+  .profile-panel dt {
+    font-size: 5.8pt;
+  }
+
+  .profile-panel dd {
+    font-size: 7pt;
+    line-height: 1.35;
   }
 
   .toolbar {
-    padding: 0 0 7mm;
+    padding: 0 0 5mm;
+  }
+
+  .toolbar h2 {
+    font-size: 18pt;
+  }
+
+  .category-section {
+    break-before: auto;
+    padding: 0 0 8mm;
+  }
+
+  .category-section + .category-section {
+    padding-top: 6mm;
+  }
+
+  .category-heading {
+    gap: 2mm;
+    margin-bottom: 4mm;
+  }
+
+  .category-heading h3 {
+    font-size: 18pt;
+  }
+
+  .section-kicker,
+  .work-category {
+    font-size: 5.8pt;
+    margin-bottom: 2mm;
+  }
+
+  .category-description {
+    width: 100%;
+    columns: 2;
+    column-gap: 7mm;
+    font-size: 7pt;
+    line-height: 1.45;
+  }
+
+  .category-description p {
+    margin-bottom: 2mm;
   }
 
   .works-grid {
@@ -576,23 +658,51 @@ main,
   }
 
   .masonry {
-    column-count: 4;
-    column-gap: 7mm;
+    column-count: 5;
+    column-gap: 2mm;
+  }
+
+  .masonry.is-compact {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2mm;
   }
 
   .work-card {
     break-inside: avoid;
+    margin: 0 0 2mm;
+    border-width: 0.25pt;
     box-shadow: none;
     background: #fff;
   }
 
-  .category-section {
-    break-before: page;
-    padding: 0;
+  .work-body {
+    padding: 2mm;
   }
 
-  .category-section:first-child {
-    break-before: auto;
+  .work-title {
+    font-size: 8pt;
+  }
+
+  .work-description,
+  .work-description p {
+    font-size: 6.5pt;
+    line-height: 1.35;
+    margin-top: 1.2mm;
+  }
+
+  .masonry.is-compact .work-card {
+    margin: 0;
+  }
+
+  .masonry.is-compact .work-media {
+    aspect-ratio: 1;
+  }
+
+  .masonry.is-compact .work-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .work-card:hover .work-media img {
