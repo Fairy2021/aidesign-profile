@@ -1,0 +1,10 @@
+{
+  "name": "folder-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-data.mjs",
+    "start": "npm run build && npx --yes serve ."
+  }
+}
